@@ -5,9 +5,29 @@
     xmlns:local="using:WSL_Guideline_UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:model="using:WSL_Guideline_UWP.Models"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <controls:MasterDetailsView Name="MainMDView"
+                                    ItemsSource="{x:Bind Articles}">
+            <controls:MasterDetailsView.ItemTemplate>
+                <DataTemplate x:DataType="model:Article">
+                    <StackPanel>
+                        <TextBlock Text="{x:Bind Name}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </controls:MasterDetailsView.ItemTemplate>
+            <controls:MasterDetailsView.DetailsTemplate>
+                <DataTemplate x:DataType="model:Article">
+                    <ScrollViewer>
+                        <Grid>
+                            <controls:MarkdownTextBlock Text="{x:Bind Content}" ImageStretch="None"/>
+                        </Grid>
+                    </ScrollViewer>
+                </DataTemplate>
+            </controls:MasterDetailsView.DetailsTemplate>
+        </controls:MasterDetailsView>
     </Grid>
 </Page>
