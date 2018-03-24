@@ -19,45 +19,57 @@ using Windows.UI.Xaml.Navigation;
 using System.Threading.Tasks;
 using WSL_Guideline_UWP.Models;
 using System.Collections.ObjectModel;
+using WSL_Guideline_UWP.Views;
+using Windows.ApplicationModel.Core;
+using Windows.UI.ViewManagement;
+using Windows.UI.Core;
 
 namespace WSL_Guideline_UWP
 {
     public sealed partial class MainPage : Page
     {
-        //MVVM绑定文章
-        ObservableCollection<Article> Articles = new ObservableCollection<Article>();
-
         public MainPage()
         {
             this.InitializeComponent();
-            string localpic = ApplicationData.Current.LocalFolder.Path + "\\2.png";
-            #region 给List赋值
-            Articles.Add(new Article()
-            {
-                Name = "Article1",
-                Content = @"# WSL 使用指南
-
-### 01 WSL入门
-
-#### 什么是WSL
-
-![test](/Assets/StoreLogo.png)
-
-&emsp;&emsp; WSL是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Windows10周年更新（1607）后的Windows系统中。 "
-            });
-            Articles[0].Content = Articles[0].Content.Replace("/Assets/StoreLogo.png", localpic);
-            Articles.Add(new Article()
-            {
-                Name = "Article2",
-                Content = Articles[0].Content
-            });
-            Articles.Add(new Article()
-            {
-                Name = "Article2",
-                Content = Articles[0].Content
-            });
-            #endregion
+            //初始化TitleBar
+            InitializeTitleBar();
+            contentFrame.Navigate(typeof(ArticleMasterDetailView));
         }
+
+        #region 自定义TitleBar
+        /// 初始化TitleBar
+        private void InitializeTitleBar()
+        {
+            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
+     
+            //TitleBar尺寸改变事件
+            coreTitleBar.LayoutMetricsChanged += CoreTitleBar_LayoutMetricsChanged;
+            //TitleBar可见性改变事件
+            coreTitleBar.IsVisibleChanged += CoreTitleBar_IsVisibleChanged;
+            Window.Current.SetTitleBar(MyTitleBar);
+        }
+        private void CoreTitleBar_LayoutMetricsChanged(CoreApplicationViewTitleBar sender, object args)
+        {
+            UpdateTitleBarLayout(sender);
+        }
+        private void UpdateTitleBarLayout(CoreApplicationViewTitleBar sender)
+        {
+            MyTitleBar.Height = sender.Height;
+            TitleTB.Margin = new Thickness(sender.SystemOverlayLeftInset+10, 0, 0, 0);
+        }
+        private void CoreTitleBar_IsVisibleChanged(CoreApplicationViewTitleBar sender, object args)
+        {
+            if (sender.IsVisible)
+            {
+                MyTitleBar.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MyTitleBar.Visibility = Visibility.Collapsed;
+            }
+        }
+        #endregion
 
     }
 }

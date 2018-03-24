@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -96,5 +97,7 @@ namespace WSL_Guideline_UWP
             //TODO: 保存应用程序状态并停止任何后台活动
             deferral.Complete();
         }
+
+
     }
 }
