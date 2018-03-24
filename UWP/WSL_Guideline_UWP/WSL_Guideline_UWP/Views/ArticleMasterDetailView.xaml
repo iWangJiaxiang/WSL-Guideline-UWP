@@ -23,7 +23,7 @@
                 <DataTemplate x:DataType="model:Article">
                     <ScrollViewer>
                         <Grid>
-                            <controls:MarkdownTextBlock Text="{x:Bind Content}" ImageStretch="None"/>
+                            <controls:MarkdownTextBlock Text="{x:Bind Content}" ImageStretch="None" Margin="10,10,10,0"/>
                         </Grid>
                     </ScrollViewer>
                 </DataTemplate>

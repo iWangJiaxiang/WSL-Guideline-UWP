@@ -8,15 +8,85 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="LargeWindow">
+                <VisualStateGroup.Transitions>
+                </VisualStateGroup.Transitions>
+                <VisualStateGroup.States>
+                    <VisualState x:Name="MinWindow">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="0"/>
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="NavView.DisplayMode"
+                                    Value="Overlay"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="NormalWindow">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="560"/>
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="NavView.DisplayMode" 
+                                    Value="CompactOverlay"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="MaxWindow">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="1008"/>
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="NavView.DisplayMode" 
+                                    Value="CompactInline"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup.States>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid Name="MyTitleBar" Background="Transparent" Grid.Row="0">
-            <TextBlock VerticalAlignment="Center" Name="TitleTB" Text="WSL Guideline"/>
+        <SplitView x:Name="NavView" 
+                   OpenPaneLength="280"
+                   CompactPaneLength="48" 
+                   PaneBackground="{StaticResource SystemControlAltHighAcrylicWindowBrush}"
+                   Grid.Row="0"
+                   Grid.RowSpan="2">
+            <SplitView.Pane>
+                <RelativePanel>
+                    <ListView Name="MenuListView" 
+                              ItemClick="MenuListView_ItemClick"
+                              RelativePanel.AlignLeftWithPanel="True"
+                              RelativePanel.AlignRightWithPanel="True"
+                              RelativePanel.AlignTopWithPanel="True">
+                    </ListView>
+
+                </RelativePanel>
+            </SplitView.Pane>
+            <Frame Name="ContentFrame"></Frame>
+        </SplitView>
+        <Button Name="MenuButton" 
+                Grid.Row="1" 
+                FontSize="24" 
+                Width="48"
+                Height="48"               
+                Background="Transparent"
+                Style="{StaticResource ButtonRevealStyle}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" 
+                Content="&#xE700;" 
+                FontFamily="Segoe MDL2 Assets"
+                Click="MenuButton_Click"/>
+        <Grid Name="AppTitleBar" Background="Transparent" Grid.Row="0">
+            <TextBlock Name="AppTitle"
+                       xmlns:appmodel="using:Windows.ApplicationModel"
+                       Text="{x:Bind appmodel:Package.Current.DisplayName}" 
+                       Style="{StaticResource CaptionTextBlockStyle}" 
+                       VerticalAlignment="Center"/>
         </Grid>
-        <Frame Grid.Row="1" Name="contentFrame"></Frame>
-               
     </Grid>
 </Page>
