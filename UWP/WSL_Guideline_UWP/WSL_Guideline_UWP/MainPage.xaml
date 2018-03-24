@@ -12,6 +12,7 @@
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="LargeWindow">
                 <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:1"/>
                 </VisualStateGroup.Transitions>
                 <VisualStateGroup.States>
                     <VisualState x:Name="MinWindow">
@@ -39,6 +40,8 @@
                         <VisualState.Setters>
                             <Setter Target="NavView.DisplayMode" 
                                     Value="CompactInline"/>
+                            <Setter Target="NavView.IsPaneOpen" 
+                                    Value="true"/>
                         </VisualState.Setters>
                     </VisualState>
                 </VisualStateGroup.States>
@@ -51,8 +54,8 @@
         <SplitView x:Name="NavView" 
                    OpenPaneLength="280"
                    CompactPaneLength="48" 
-                   PaneBackground="{StaticResource SystemControlAltHighAcrylicWindowBrush}"
                    Grid.Row="0"
+                   PaneBackground="{StaticResource SystemControlBaseHighAcrylicWindowMediumBrush}"
                    Grid.RowSpan="2">
             <SplitView.Pane>
                 <RelativePanel>

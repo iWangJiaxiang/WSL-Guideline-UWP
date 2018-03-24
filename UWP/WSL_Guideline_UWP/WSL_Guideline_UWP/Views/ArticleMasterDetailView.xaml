@@ -9,9 +9,10 @@
     xmlns:model="using:WSL_Guideline_UWP.Models"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <controls:MasterDetailsView Name="MainMDView" Background="{ThemeResource SystemControlAcrylicElementBrush}"
-                                    ItemsSource="{x:Bind Articles}">
+    <Grid>
+        <controls:MasterDetailsView Name="MainMDView"
+                                    ItemsSource="{x:Bind Articles}" 
+                                    MasterPaneBackground="{ThemeResource SystemControlBaseLowAcrylicWindowBrush}">
             <controls:MasterDetailsView.ItemTemplate>
                 <DataTemplate x:DataType="model:Article">
                     <StackPanel>
