@@ -1,36 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using WSL_Guideline_UWP.Models;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Windows.Storage;
+using WSL_Guideline_UWP.Models;
 
-namespace WSL_Guideline_UWP.Views
+namespace WSL_Guideline_UWP.ViewModels
 {
-    /// <summary>
-    /// 文章页面
-    /// </summary>
-    public sealed partial class ArticleMasterDetailView : Page
+    public class ArticleViewModel
     {
-        //MVVM绑定文章
-        ObservableCollection<Article> Articles = new ObservableCollection<Article>();
+        private ObservableCollection<Article> articles;
 
-        public ArticleMasterDetailView()
+        public ObservableCollection<Article> Articles
         {
-            this.InitializeComponent();
+            get { return articles; }
+        }
 
+        public ArticleViewModel()
+        {
+            articles = new ObservableCollection<Article>();
             string localpic = ApplicationData.Current.LocalFolder.Path + "\\2.png";
+
             #region 给List赋值
             Articles.Add(new Article()
             {
@@ -59,5 +51,6 @@ namespace WSL_Guideline_UWP.Views
             #endregion
 
         }
+
     }
 }

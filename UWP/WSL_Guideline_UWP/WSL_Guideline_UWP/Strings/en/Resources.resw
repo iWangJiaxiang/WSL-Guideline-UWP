@@ -117,7 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Hello.Text" xml:space="preserve">
-    <value>666en</value>
+  <data name="MenuItem_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="MenuItem_Article" xml:space="preserve">
+    <value>Articles</value>
+  </data>
+  <data name="MenuItem_Home" xml:space="preserve">
+    <value>Home</value>
   </data>
 </root>

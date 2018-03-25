@@ -21,18 +21,21 @@ using Windows.ApplicationModel.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Core;
 using Windows.UI;
-
+using WSL_Guideline_UWP.ViewModels;
 namespace WSL_Guideline_UWP
 {
     public sealed partial class MainPage : Page
     {
+        private MenuItemViewModel ViewModel;
         public MainPage()
         {
             this.InitializeComponent();
+            ViewModel = new MenuItemViewModel();
             //初始化TitleBar
             InitializeTitleBar();
             UpdateAppTitleVisibility();
-            ContentFrame.Navigate(typeof(ArticleMasterDetailView));
+
+            ContentFrame.Navigate(typeof(ArticleView));
         }
 
         #region 自定义TitleBar
@@ -62,11 +65,19 @@ namespace WSL_Guideline_UWP
             UpdateTitleBarLayout(sender);
         }
 
+        private void UpdateAppTitleVisibility()
+        {
+            if (NavMenu.IsPaneOpen)
+                AppTitle.Visibility = Visibility.Visible;
+            else
+                AppTitle.Visibility = Visibility.Collapsed;
+        }
+
         private void UpdateTitleBarLayout(CoreApplicationViewTitleBar sender)
         {
             AppTitleBar.Height = sender.Height;
             AppTitle.Margin = new Thickness(sender.SystemOverlayLeftInset + 10, 0, 0, 0);
-            UpdateNavView(sender.Height);
+            UpdateNavMenu(sender.Height);
         }
 
         private void CoreTitleBar_IsVisibleChanged(CoreApplicationViewTitleBar sender, object args)
@@ -74,18 +85,18 @@ namespace WSL_Guideline_UWP
             if (sender.IsVisible)
             {
                 AppTitleBar.Visibility = Visibility.Visible;
-                UpdateNavView(sender.Height);
+                UpdateNavMenu(sender.Height);
             }
             else
             {
                 AppTitleBar.Visibility = Visibility.Collapsed;
-                UpdateNavView(0);
+                UpdateNavMenu(0);
             }
         }
         #endregion
 
         /// 自定义页面内容上边距
-        private void UpdateNavView(double appTitleBarHeight)
+        private void UpdateNavMenu(double appTitleBarHeight)
         {
             var currentMarginTop = MenuButton.Height +appTitleBarHeight;
             MenuListView.Margin = new Thickness(0, currentMarginTop, 0, 0);
@@ -95,21 +106,31 @@ namespace WSL_Guideline_UWP
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
-            NavView.IsPaneOpen = !NavView.IsPaneOpen;
+            NavMenu.IsPaneOpen = !NavMenu.IsPaneOpen;
             UpdateAppTitleVisibility();
         }
 
-        private void UpdateAppTitleVisibility()
+        private void MenuListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (NavView.IsPaneOpen)
-                AppTitle.Visibility = Visibility.Visible;
-            else
-                AppTitle.Visibility = Visibility.Collapsed;
+            switch (((MenuItem)((ListView)sender).SelectedItem).Tag)
+            {
+                case "Home":
+                    ContentFrame.Navigate(typeof(HomeView));
+                    break;
+                case "Article":
+                    ContentFrame.Navigate(typeof(ArticleView));
+                    break;
+                case "About":
+                    ContentFrame.Navigate(typeof(AboutView));
+                    break;
+                default: break;
+            }
+            if (NavMenu.DisplayMode != SplitViewDisplayMode.CompactInline)
+            {
+                NavMenu.IsPaneOpen = false;
+            }
+
         }
 
-        private void MenuListView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
-        }
     }
 }

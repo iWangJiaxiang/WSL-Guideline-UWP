@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:WSL_Guideline_UWP"
+    xmlns:model="using:WSL_Guideline_UWP.Models"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
@@ -11,17 +12,16 @@
     <Grid>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="LargeWindow">
-                <VisualStateGroup.Transitions>
-                    <VisualTransition GeneratedDuration="0:0:1"/>
-                </VisualStateGroup.Transitions>
                 <VisualStateGroup.States>
                     <VisualState x:Name="MinWindow">
                         <VisualState.StateTriggers>
                             <AdaptiveTrigger MinWindowWidth="0"/>
                         </VisualState.StateTriggers>
                         <VisualState.Setters>
-                            <Setter Target="NavView.DisplayMode"
+                            <Setter Target="NavMenu.DisplayMode"
                                     Value="Overlay"/>
+                            <Setter Target="AppTitle.Visibility"
+                                    Value="Collapsed"/>
                         </VisualState.Setters>
                     </VisualState>
                     <VisualState x:Name="NormalWindow">
@@ -29,8 +29,10 @@
                             <AdaptiveTrigger MinWindowWidth="560"/>
                         </VisualState.StateTriggers>
                         <VisualState.Setters>
-                            <Setter Target="NavView.DisplayMode" 
+                            <Setter Target="NavMenu.DisplayMode" 
                                     Value="CompactOverlay"/>
+                            <Setter Target="AppTitle.Visibility"
+                                    Value="Collapsed"/>
                         </VisualState.Setters>
                     </VisualState>
                     <VisualState x:Name="MaxWindow">
@@ -38,10 +40,12 @@
                             <AdaptiveTrigger MinWindowWidth="1008"/>
                         </VisualState.StateTriggers>
                         <VisualState.Setters>
-                            <Setter Target="NavView.DisplayMode" 
+                            <Setter Target="NavMenu.DisplayMode" 
                                     Value="CompactInline"/>
-                            <Setter Target="NavView.IsPaneOpen" 
+                            <Setter Target="NavMenu.IsPaneOpen" 
                                     Value="true"/>
+                            <Setter Target="AppTitle.Visibility"
+                                    Value="Visible"/>
                         </VisualState.Setters>
                     </VisualState>
                 </VisualStateGroup.States>
@@ -51,21 +55,42 @@
             <RowDefinition Height="auto"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <SplitView x:Name="NavView" 
+        <SplitView x:Name="NavMenu" 
                    OpenPaneLength="280"
-                   CompactPaneLength="48" 
+                   CompactPaneLength="48"
                    Grid.Row="0"
-                   PaneBackground="{StaticResource SystemControlBaseHighAcrylicWindowMediumBrush}"
+                   PaneBackground="{StaticResource SystemControlAcrylicWindowMediumHighBrush}"
                    Grid.RowSpan="2">
             <SplitView.Pane>
                 <RelativePanel>
                     <ListView Name="MenuListView" 
-                              ItemClick="MenuListView_ItemClick"
+                              SelectionChanged="MenuListView_SelectionChanged"
+                              ItemsSource="{x:Bind ViewModel.MenuItems}"
                               RelativePanel.AlignLeftWithPanel="True"
                               RelativePanel.AlignRightWithPanel="True"
-                              RelativePanel.AlignTopWithPanel="True">
+                              RelativePanel.AlignTopWithPanel="True" 
+                              RelativePanel.AlignBottomWithPanel="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="model:MenuItem">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="48"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock FontFamily="{x:Bind IconFontFamilly}"
+                                               Text="{x:Bind IconContent}"
+                                               FontSize="24"
+                                               Grid.Column="0"
+                                              VerticalAlignment="Center"/>
+                                    <TextBlock Text="{x:Bind MenuContent}"
+                                               Grid.Column="1"
+                                               FontSize="20"
+                                               VerticalAlignment="Center"
+                                               Margin="5,0,0,0"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
                     </ListView>
-
                 </RelativePanel>
             </SplitView.Pane>
             <Frame Name="ContentFrame"></Frame>
