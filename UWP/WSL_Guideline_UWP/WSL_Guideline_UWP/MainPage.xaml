@@ -79,12 +79,12 @@
                                     </Grid.ColumnDefinitions>
                                     <TextBlock FontFamily="{x:Bind IconFontFamilly}"
                                                Text="{x:Bind IconContent}"
-                                               FontSize="24"
+                                               FontSize="20"
                                                Grid.Column="0"
                                               VerticalAlignment="Center"/>
                                     <TextBlock Text="{x:Bind MenuContent}"
                                                Grid.Column="1"
-                                               FontSize="20"
+                                               FontSize="18"
                                                VerticalAlignment="Center"
                                                Margin="5,0,0,0"/>
                                 </Grid>

@@ -129,8 +129,7 @@ namespace WSL_Guideline_UWP
             {
                 NavMenu.IsPaneOpen = false;
             }
-
+            UpdateAppTitleVisibility();
         }
-
     }
 }
