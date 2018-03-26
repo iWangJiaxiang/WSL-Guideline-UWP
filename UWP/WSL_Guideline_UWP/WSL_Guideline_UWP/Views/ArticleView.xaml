@@ -11,11 +11,11 @@
     Tag="ArticleView"
     NavigationCacheMode="Enabled">
 
-    <Grid>
-        <controls:MasterDetailsView Name="MainMDView"
+    <Grid  Name="RootGrid">
+        <controls:MasterDetailsView Name="MainMDView" 
                                     SelectionChanged="MainMDView_SelectionChanged"
                                     ItemsSource="{x:Bind ViewModel.Articles}" 
-                                    MasterPaneBackground="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+                                    MasterPaneBackground="Transparent">
             <controls:MasterDetailsView.ItemTemplate>
                 <DataTemplate x:DataType="model:Article">
                     <StackPanel>
@@ -38,15 +38,16 @@
                         <ScrollViewer ViewChanged="DetailScrollBar_ViewChanged">
                             <Grid>
                                 <controls:MarkdownTextBlock 
-                                Text="{x:Bind Content}"
+                                Text="{x:Bind Content}" 
                                 LinkClicked="MarkdownTextBlock_LinkClicked"
                                 ImageStretch="None" 
                                 ParagraphMargin="0,10,0,20"
-                                Margin="10,48,10,36" 
-                                WrapCodeBlock="True"                                
+                                WrapCodeBlock="True"        
+                                    Margin="10,28,10,20"
                                 CodePadding="10,10,10,10"/>
                             </Grid>
                         </ScrollViewer>
+
                         <Rectangle 
                                 VerticalAlignment="Top"
                                 Height="64"

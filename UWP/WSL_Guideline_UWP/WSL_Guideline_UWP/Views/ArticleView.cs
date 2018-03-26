@@ -18,11 +18,9 @@ using System.Collections.ObjectModel;
 using Windows.Storage;
 using WSL_Guideline_UWP.ViewModels;
 using WSL_Guideline_UWP.Helpers;
+
 namespace WSL_Guideline_UWP.Views
 {
-    /// <summary>
-    /// 文章页面
-    /// </summary>
     public sealed partial class ArticleView : Page
     {
         private string CurrentSelectionInMasterDetailView = "";
@@ -37,7 +35,20 @@ namespace WSL_Guideline_UWP.Views
             ViewModel = new ArticlesViewModel();
 
             ViewModel.LoadModelsAsync(ArticleFolder);
-            
+
+            CurrentMarginTop.OnCurrentMarginTopChanged += CurrentMarginTop_OnCurrentMarginTopChanged;
+            CurrentMarginTop_OnCurrentMarginTopChanged();
+        }
+        private void CurrentMarginTop_OnCurrentMarginTopChanged()
+        {
+            if (CurrentMarginTop.IsDisplayModeOverLay)
+            {
+                RootGrid.Padding = new Thickness(0, Models.CurrentMarginTop.MarginTop, 0, 0);
+            }
+            else
+            {
+                RootGrid.Padding = new Thickness(0, 0, 0, 0);
+            }
         }
 
         private async void MarkdownTextBlock_LinkClicked(object sender, Microsoft.Toolkit.Uwp.UI.Controls.LinkClickedEventArgs e)
@@ -63,7 +74,9 @@ namespace WSL_Guideline_UWP.Views
 
         private void MainMDView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string selectionName = ((Article)((Microsoft.Toolkit.Uwp.UI.Controls.MasterDetailsView)sender).SelectedItem).Name;
+            if (e.AddedItems[0] == null)
+                return;
+            string selectionName = ((Article)e.AddedItems[0]).Name;
             if (CurrentSelectionInMasterDetailView != selectionName)
             {
                 CurrentSelectionInMasterDetailView = selectionName;

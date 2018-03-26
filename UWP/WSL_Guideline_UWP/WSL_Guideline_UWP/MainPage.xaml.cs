@@ -22,6 +22,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Core;
 using Windows.UI;
 using WSL_Guideline_UWP.ViewModels;
+
 namespace WSL_Guideline_UWP
 {
     public sealed partial class MainPage : Page
@@ -34,8 +35,7 @@ namespace WSL_Guideline_UWP
             //初始化TitleBar
             InitializeTitleBar();
             UpdateAppTitleVisibility();
-
-            ContentFrame.Navigate(typeof(ArticleView));
+            ContentFrame.Navigate(typeof(HomeView));
         }
 
         #region 自定义TitleBar
@@ -63,14 +63,22 @@ namespace WSL_Guideline_UWP
         private void CoreTitleBar_LayoutMetricsChanged(CoreApplicationViewTitleBar sender, object args)
         {
             UpdateTitleBarLayout(sender);
+            UpdateAppTitleVisibility();
         }
+
+        
 
         private void UpdateAppTitleVisibility()
         {
-            if (NavMenu.IsPaneOpen)
+            if (NavMenu.IsPaneOpen || IsMiniDisplayMode())
                 AppTitle.Visibility = Visibility.Visible;
             else
                 AppTitle.Visibility = Visibility.Collapsed;
+        }
+
+        private bool IsMiniDisplayMode()
+        {
+            return NavMenu.DisplayMode == SplitViewDisplayMode.Overlay;
         }
 
         private void UpdateTitleBarLayout(CoreApplicationViewTitleBar sender)
@@ -98,9 +106,17 @@ namespace WSL_Guideline_UWP
         /// 自定义页面内容上边距
         private void UpdateNavMenu(double appTitleBarHeight)
         {
-            var currentMarginTop = MenuButton.Height +appTitleBarHeight;
-            MenuListView.Margin = new Thickness(0, currentMarginTop, 0, 0);
-           // ContentFrame.Padding = new Thickness(0, currentMarginTop, 0, 0);
+            MenuListView.Margin = new Thickness(0, UpdateMarginTop(appTitleBarHeight), 0, 0);
+        }
+
+        private double UpdateMarginTop(double appTitleBarHeight)
+        {
+            var currentMarginTop = MenuButton.Height + appTitleBarHeight;
+
+            CurrentMarginTop.IsDisplayModeOverLay = IsMiniDisplayMode() ? true : false;
+            CurrentMarginTop.MarginTop = currentMarginTop;
+
+            return currentMarginTop;
         }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
@@ -130,6 +146,9 @@ namespace WSL_Guideline_UWP
                 default:
                     break;
             }
+
+            UpdateMarginTop(CoreApplication.GetCurrentView().TitleBar.Height);
+
             if (NavMenu.DisplayMode != SplitViewDisplayMode.CompactInline)
             {
                 NavMenu.IsPaneOpen = false;
@@ -139,7 +158,7 @@ namespace WSL_Guideline_UWP
 
         private void ContentFrame_Navigated(object sender, NavigationEventArgs e)
         {
-            var name = ContentFrame.CurrentSourcePageType.Name;
+           // var name = ContentFrame.CurrentSourcePageType.Name;
             //To-do
             //Bug：ListView还未初始化
             //switch (name)
@@ -154,6 +173,12 @@ namespace WSL_Guideline_UWP
             //    default:
             //        break;
             //}
+        }
+
+        private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            UpdateMarginTop(CoreApplication.GetCurrentView().TitleBar.Height);
+            UpdateAppTitleVisibility();
         }
     }
 }

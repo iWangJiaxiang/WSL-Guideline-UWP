@@ -120,6 +120,15 @@
   <data name="ArticleList.Text" xml:space="preserve">
     <value>最新文章</value>
   </data>
+  <data name="Author.Text" xml:space="preserve">
+    <value>By: Wang Jiaxiang</value>
+  </data>
+  <data name="ContactMe.Content" xml:space="preserve">
+    <value>提供反馈</value>
+  </data>
+  <data name="ContactMe.NavigateUri" xml:space="preserve">
+    <value>mailto:wangjiaxiang96@outlook.com</value>
+  </data>
   <data name="MasterDetailViewNoContentText.Text" xml:space="preserve">
     <value>使用指南</value>
   </data>

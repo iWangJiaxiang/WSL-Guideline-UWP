@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -14,13 +15,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using WSL_Guideline_UWP.ViewModels;
 
-// https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
-
 namespace WSL_Guideline_UWP.Views
 {
-    /// <summary>
-    /// 可用于自身或导航至 Frame 内部的空白页。
-    /// </summary>
     public sealed partial class HomeView : Page
     {
         private string HomeArticle = @"\ArticleData\WSL-Guideline\README.md";
@@ -33,6 +29,21 @@ namespace WSL_Guideline_UWP.Views
 
             ViewModel = new ArticleViewModel();
             ViewModel.LoadModelAsync(HomeArticle);
+
+            Models.CurrentMarginTop.OnCurrentMarginTopChanged += CurrentMarginTop_OnCurrentMarginTopChanged;
+            CurrentMarginTop_OnCurrentMarginTopChanged();
+                }
+
+        private void CurrentMarginTop_OnCurrentMarginTopChanged()
+        {
+            if (Models.CurrentMarginTop.IsDisplayModeOverLay)
+            {
+                RootGrid.Padding = new Thickness(0, Models.CurrentMarginTop.MarginTop, 0, 0);
+            }
+            else
+            {
+                RootGrid.Padding = new Thickness(0, 0, 0, 0);
+            }
         }
 
         private async void HomeMarkDown_LinkClicked(object sender, Microsoft.Toolkit.Uwp.UI.Controls.LinkClickedEventArgs e)
@@ -41,6 +52,14 @@ namespace WSL_Guideline_UWP.Views
                 await Windows.System.Launcher.LaunchUriAsync(new Uri(e.Link));
             else
             {
+                //await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>
+                //{
+                //    var current = Window.Current;
+                //    var view = ApplicationView.GetForCurrentView();
+                //});
+                //await Window.Current.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>{
+                //    MainPage.
+                //});
                 this.Frame.Navigate(typeof(ArticleView));
             }
         }

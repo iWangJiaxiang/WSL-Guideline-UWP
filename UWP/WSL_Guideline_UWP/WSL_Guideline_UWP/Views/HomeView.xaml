@@ -11,17 +11,19 @@
     Tag="HomeView"
     NavigationCacheMode="Enabled">
 
-    <Grid Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
-        <ScrollViewer>
+    <Grid Name="RootGrid" Background="Transparent">
+        <ScrollViewer Background="Transparent">
             <control:MarkdownTextBlock
-            Name="HomeMarkDown" ImageStretch="None" 
+            Name="HomeMarkDown" 
+                ImageStretch="None" 
             Text="{x:Bind ViewModel.ArticleOne.Content,Mode=OneWay}"
             LinkClicked="HomeMarkDown_LinkClicked"
             ParagraphMargin="0,10,0,20"
             WrapCodeBlock="True" 
-            Margin="20,64,20,48"
+            Margin="20,10,20,48"
+            Background="Transparent"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center"
+            VerticalAlignment="Top"
             CodePadding="10,10,10,10"/>
         </ScrollViewer>
         <Rectangle 
