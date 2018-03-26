@@ -14,7 +14,7 @@
     <Grid  Name="RootGrid">
         <controls:MasterDetailsView Name="MainMDView" 
                                     ItemsSource="{x:Bind ViewModel.Articles}" 
-                                    MasterPaneBackground="{ThemeResource SystemControlChromeMediumLowAcrylicElementMediumBrush}">
+                                    MasterPaneBackground="{ThemeResource ContentAcrylicBrush}">
             <controls:MasterDetailsView.ItemTemplate>
                 <DataTemplate x:DataType="model:Article">
                     <StackPanel>
@@ -36,7 +36,7 @@
                     <Grid>
                         <ScrollViewer DataContextChanged="ScrollViewer_DataContextChanged">
                             <Grid>
-                                <controls:MarkdownTextBlock 
+                                <controls:MarkdownTextBlock x:Name="md"
                                     UriPrefix="ms-appx://"
                                 Text="{x:Bind Content}" 
                                 LinkClicked="MarkdownTextBlock_LinkClicked"

@@ -59,7 +59,9 @@
                    OpenPaneLength="280"
                    CompactPaneLength="48"
                    Grid.Row="0"
-                   PaneBackground="{StaticResource SystemControlChromeMediumLowAcrylicWindowMediumBrush}"
+                   PaneClosing="NavMenu_PaneClosing"
+                   PaneOpening="NavMenu_PaneOpening"
+                   PaneBackground="{ThemeResource NaviAcrylicBrush }"
                    Grid.RowSpan="2">
             <SplitView.Pane>
                 <RelativePanel>
@@ -94,7 +96,9 @@
                 </RelativePanel>
             </SplitView.Pane>
             <Frame
-                 Name="ContentFrame"></Frame>
+                 Name="ContentFrame"
+                Background="{ThemeResource ContentAcrylicBrush}">                
+            </Frame>
         </SplitView>
         <Button Name="MenuButton" 
                 Grid.Row="1" 

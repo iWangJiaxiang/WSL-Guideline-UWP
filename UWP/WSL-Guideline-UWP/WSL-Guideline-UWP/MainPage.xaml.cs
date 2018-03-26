@@ -122,7 +122,6 @@ namespace WSL_Guideline_UWP
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
             NavMenu.IsPaneOpen = !NavMenu.IsPaneOpen;
-            UpdateAppTitleVisibility();
         }
 
         private void MenuListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -153,7 +152,7 @@ namespace WSL_Guideline_UWP
             {
                 NavMenu.IsPaneOpen = false;
             }
-            UpdateAppTitleVisibility();
+            //UpdateAppTitleVisibility();
         }
 
         private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -162,5 +161,15 @@ namespace WSL_Guideline_UWP
             UpdateAppTitleVisibility();
         }
 
+        private void NavMenu_PaneClosing(SplitView sender, SplitViewPaneClosingEventArgs args)
+        {
+            if (!IsMiniDisplayMode())
+                AppTitle.Visibility = Visibility.Collapsed;
+        }
+
+        private void NavMenu_PaneOpening(SplitView sender, object args)
+        {
+            AppTitle.Visibility = Visibility.Visible;
+        }
     }
 }

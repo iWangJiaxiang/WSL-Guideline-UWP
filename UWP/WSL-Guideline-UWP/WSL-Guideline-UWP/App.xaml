@@ -4,5 +4,48 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:WSL_Guideline_UWP"
     RequestedTheme="Light">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <AcrylicBrush
+                        x:Key="NaviAcrylicBrush"
+                        BackgroundSource="HostBackdrop"
+                        TintColor="#5b9bd5"                        
+                        TintOpacity="0.6"
+                        FallbackColor="#5b9bd5"/>
+                    <AcrylicBrush
+                        x:Key="ContentAcrylicBrush"
+                        BackgroundSource="HostBackdrop"
+                        TintColor="#9bbde5"                        
+                        TintOpacity="0.8"
+                        FallbackColor="#9bbde5"/>
+                </ResourceDictionary>
 
+                <ResourceDictionary x:Key="HighContrast">
+                    <SolidColorBrush 
+                        x:Key="NaviAcrylicBrush"
+                        Color="{ThemeResource SystemColorWindowColor}"/>
+                    <SolidColorBrush 
+                        x:Key="ContentAcrylicBrush"
+                        Color="{ThemeResource SystemColorElementColor}"/>
+                </ResourceDictionary>
+
+                <ResourceDictionary x:Key="Light">
+                    <AcrylicBrush 
+                        x:Key="NaviAcrylicBrush"
+                        BackgroundSource="HostBackdrop"
+                        TintColor="#5b9bd5"
+                        TintOpacity="0.6"
+                        FallbackColor="#5b9bd5"/>
+                    <AcrylicBrush
+                        x:Key="ContentAcrylicBrush"
+                        BackgroundSource="HostBackdrop"
+                        TintColor="#9bbde5"                        
+                        TintOpacity="0.8"
+                        FallbackColor="#9bbde5"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

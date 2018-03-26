@@ -11,7 +11,9 @@
     Tag="HomeView"
     NavigationCacheMode="Enabled">
 
-    <Grid Name="RootGrid" Background="{ThemeResource SystemControlChromeMediumLowAcrylicElementMediumBrush}">
+    <Grid 
+        Name="RootGrid"
+        Background="{ThemeResource ContentAcrylicBrush}">
         <ScrollViewer Background="Transparent">
             <control:MarkdownTextBlock
             Name="HomeMarkDown" 
@@ -27,27 +29,5 @@
             VerticalAlignment="Top"
             CodePadding="10,10,10,10"/>
         </ScrollViewer>
-        <Rectangle 
-                                VerticalAlignment="Top"
-                                Height="64"
-                                HorizontalAlignment="Stretch">
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="White"/>
-                    <GradientStop Color="Transparent" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle 
-                                VerticalAlignment="Bottom"
-                                Height="64"
-                                HorizontalAlignment="Stretch">
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Transparent"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
     </Grid>
 </Page>
