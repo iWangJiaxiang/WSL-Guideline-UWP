@@ -55,7 +55,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <SplitView x:Name="NavMenu" 
+        <SplitView x:Name="NavMenu"
                    OpenPaneLength="280"
                    CompactPaneLength="48"
                    Grid.Row="0"
@@ -94,7 +94,7 @@
                 </RelativePanel>
             </SplitView.Pane>
             <Frame
-                 Name="ContentFrame" Navigated="ContentFrame_Navigated"></Frame>
+                 Name="ContentFrame"></Frame>
         </SplitView>
         <Button Name="MenuButton" 
                 Grid.Row="1" 

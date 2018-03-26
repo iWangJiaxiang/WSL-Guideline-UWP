@@ -156,29 +156,11 @@ namespace WSL_Guideline_UWP
             UpdateAppTitleVisibility();
         }
 
-        private void ContentFrame_Navigated(object sender, NavigationEventArgs e)
-        {
-           // var name = ContentFrame.CurrentSourcePageType.Name;
-            //To-do
-            //Bug：ListView还未初始化
-            //switch (name)
-            //{
-            //    case "HomeView":
-            //        break;
-            //    case "ArticleView":
-            //        MenuListView.SelectedIndex = 2;
-            //        break;
-            //    case "AboutView":
-            //        break;
-            //    default:
-            //        break;
-            //}
-        }
-
         private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             UpdateMarginTop(CoreApplication.GetCurrentView().TitleBar.Height);
             UpdateAppTitleVisibility();
         }
+
     }
 }
