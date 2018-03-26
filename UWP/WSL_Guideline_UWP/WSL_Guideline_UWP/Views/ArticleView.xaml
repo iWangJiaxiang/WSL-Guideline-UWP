@@ -13,7 +13,6 @@
 
     <Grid  Name="RootGrid">
         <controls:MasterDetailsView Name="MainMDView" 
-                                    SelectionChanged="MainMDView_SelectionChanged"
                                     ItemsSource="{x:Bind ViewModel.Articles}" 
                                     MasterPaneBackground="Transparent">
             <controls:MasterDetailsView.ItemTemplate>
@@ -35,7 +34,7 @@
             <controls:MasterDetailsView.DetailsTemplate>
                 <DataTemplate x:DataType="model:Article">
                     <Grid>
-                        <ScrollViewer ViewChanged="DetailScrollBar_ViewChanged">
+                        <ScrollViewer DataContextChanged="ScrollViewer_DataContextChanged">
                             <Grid>
                                 <controls:MarkdownTextBlock 
                                 Text="{x:Bind Content}" 

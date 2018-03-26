@@ -4,7 +4,7 @@
   <mp:PhoneIdentity PhoneProductId="b72faf6d-b707-4458-bb7e-cc9b21cb9c5f" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>WSL_Guideline_UWP</DisplayName>
-    <PublisherDisplayName>imFel</PublisherDisplayName>
+    <PublisherDisplayName>Wang Jiaxiang</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>

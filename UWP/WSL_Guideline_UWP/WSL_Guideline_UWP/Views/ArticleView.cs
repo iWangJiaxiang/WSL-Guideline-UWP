@@ -23,8 +23,6 @@ namespace WSL_Guideline_UWP.Views
 {
     public sealed partial class ArticleView : Page
     {
-        private string CurrentSelectionInMasterDetailView = "";
-        private string PreviousSelectionInMasterDetailView = "";
         private string ArticleFolder = @"\ArticleData\WSL-Guideline\中文";
 
         private ArticlesViewModel ViewModel;
@@ -61,26 +59,12 @@ namespace WSL_Guideline_UWP.Views
             }
         }
 
-        private void DetailScrollBar_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+        private void ScrollViewer_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
         {
-            if (PreviousSelectionInMasterDetailView == CurrentSelectionInMasterDetailView)
-            {
+            if (args.NewValue == null)
                 return;
-            }
             ScrollViewer scrollViewer = (ScrollViewer)sender;
             scrollViewer.ScrollToVerticalOffset(0);
-            PreviousSelectionInMasterDetailView = CurrentSelectionInMasterDetailView;
-        }
-
-        private void MainMDView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (e.AddedItems[0] == null)
-                return;
-            string selectionName = ((Article)e.AddedItems[0]).Name;
-            if (CurrentSelectionInMasterDetailView != selectionName)
-            {
-                CurrentSelectionInMasterDetailView = selectionName;
-            }
         }
     }
 }
