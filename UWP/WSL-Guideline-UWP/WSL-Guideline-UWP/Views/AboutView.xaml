@@ -42,5 +42,7 @@
             <TextBlock Margin="0,10,0,0" x:Uid="Author" FontSize="18"/>
             <HyperlinkButton Margin="0,10,0,0" x:Uid="ContactMe" Content="66" NavigateUri="mailto:wangjiaxiang96@outlook.com"/>
         </StackPanel>
+        <Image Height="500"
+               Width="500" Source="D:\imFelix\Documents\Visual Studio 2017\Projects\WSL-Guideline-UWP2\UWP\WSL_Guideline_UWP\WSL_Guideline_UWP\bin\x86\Debug\AppX\ArticleData\WSL-Guideline\images\04-安装桌面环境\x2.png"/>
     </Grid>
 </Page>

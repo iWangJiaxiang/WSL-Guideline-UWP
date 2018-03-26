@@ -60,13 +60,13 @@ namespace WSL_Guideline_UWP.Helpers
         }
 
 
-        public async Task<string> FormatStringAsync(string input)
+        public async Task<string> FormatStringAsync(string input,string fileName)
         {
             string patternPrefix = @"(&emsp;&emsp;<img)(.*?src=""..)";
             string patternSuffix = @""">";
 
-            input = Regex.Replace(input, patternPrefix, @"!\[\]\(ms-appx:///ArticleData/WSL-Guideline");
-            input = Regex.Replace(input, patternSuffix, @"\)");
+            input = Regex.Replace(input, patternPrefix, @"![](ms-appx:///ArticleData/WSL-Guideline");
+            input = Regex.Replace(input, patternSuffix, @")");
 
             return input;
         }

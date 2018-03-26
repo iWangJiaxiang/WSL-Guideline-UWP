@@ -15,7 +15,8 @@
         <ScrollViewer Background="Transparent">
             <control:MarkdownTextBlock
             Name="HomeMarkDown" 
-                ImageStretch="None" 
+                UriPrefix="ms-appx://"
+                ImageStretch="UniformToFill" 
             Text="{x:Bind ViewModel.ArticleOne.Content,Mode=OneWay}"
             LinkClicked="HomeMarkDown_LinkClicked"
             ParagraphMargin="0,10,0,20"

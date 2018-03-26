@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSL_Guideline_UWP", "WSL_Guideline_UWP\WSL_Guideline_UWP.csproj", "{0ED432AF-6379-4E24-AE89-66AB9699CB49}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSL-Guideline-UWP", "WSL-Guideline-UWP\WSL-Guideline-UWP.csproj", "{0ED432AF-6379-4E24-AE89-66AB9699CB49}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{C1C55EB3-8184-4D33-9E1A-9FA5099539DA}"
 EndProject

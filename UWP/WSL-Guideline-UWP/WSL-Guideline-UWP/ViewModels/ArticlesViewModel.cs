@@ -41,7 +41,7 @@ namespace WSL_Guideline_UWP.ViewModels
             foreach (var file in files)
             {
                 temp = await fileHelper.ReadFileToStringAsync(file);
-                temp = await fileHelper.FormatStringAsync(temp);
+                temp = await fileHelper.FormatStringAsync(temp,file.DisplayName);
 
                 Articles.Add(new Article(file.DisplayName, temp));
             }

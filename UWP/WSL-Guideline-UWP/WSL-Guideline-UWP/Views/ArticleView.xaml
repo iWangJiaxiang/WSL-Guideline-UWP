@@ -37,9 +37,10 @@
                         <ScrollViewer DataContextChanged="ScrollViewer_DataContextChanged">
                             <Grid>
                                 <controls:MarkdownTextBlock 
+                                    UriPrefix="ms-appx://"
                                 Text="{x:Bind Content}" 
                                 LinkClicked="MarkdownTextBlock_LinkClicked"
-                                ImageStretch="None" 
+                                ImageStretch="UniformToFill" 
                                 ParagraphMargin="0,10,0,20"
                                 WrapCodeBlock="True"        
                                     Margin="10,28,10,20"

@@ -138,7 +138,7 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WSL_Guideline_UWP\WSL_Guideline_UWP.csproj">
+    <ProjectReference Include="..\WSL-Guideline-UWP\WSL-Guideline-UWP.csproj">
       <Project>{0ed432af-6379-4e24-ae89-66ab9699cb49}</Project>
       <Name>WSL_Guideline_UWP</Name>
     </ProjectReference>

@@ -59,7 +59,7 @@
                    OpenPaneLength="280"
                    CompactPaneLength="48"
                    Grid.Row="0"
-                   PaneBackground="{StaticResource SystemControlChromeHighAcrylicWindowMediumBrush}"
+                   PaneBackground="{StaticResource SystemControlChromeMediumLowAcrylicWindowMediumBrush}"
                    Grid.RowSpan="2">
             <SplitView.Pane>
                 <RelativePanel>

@@ -32,7 +32,7 @@ namespace WSL_Guideline_UWP.Views
 
             Models.CurrentMarginTop.OnCurrentMarginTopChanged += CurrentMarginTop_OnCurrentMarginTopChanged;
             CurrentMarginTop_OnCurrentMarginTopChanged();
-                }
+        }
 
         private void CurrentMarginTop_OnCurrentMarginTopChanged()
         {
@@ -48,7 +48,7 @@ namespace WSL_Guideline_UWP.Views
 
         private async void HomeMarkDown_LinkClicked(object sender, Microsoft.Toolkit.Uwp.UI.Controls.LinkClickedEventArgs e)
         {
-            if (e.Link.StartsWith("http")|| e.Link.StartsWith("mail"))
+            if (e.Link.StartsWith("http") || e.Link.StartsWith("mail"))
                 await Windows.System.Launcher.LaunchUriAsync(new Uri(e.Link));
             else
             {
@@ -60,7 +60,7 @@ namespace WSL_Guideline_UWP.Views
                 //await Window.Current.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () =>{
                 //    MainPage.
                 //});
-                this.Frame.Navigate(typeof(ArticleView));
+                //this.Frame.Navigate(typeof(ArticleView));
             }
         }
     }

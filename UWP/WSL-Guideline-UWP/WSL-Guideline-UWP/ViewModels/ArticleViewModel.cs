@@ -30,7 +30,7 @@ namespace WSL_Guideline_UWP.ViewModels
             FileHelper fileHelper = new FileHelper();
 
             string temp = await fileHelper.ReadFileToStringAsync(filePath);
-            temp = await fileHelper.FormatStringAsync(temp);
+            temp = await fileHelper.FormatStringAsync(temp,"");
 
             ArticleOne.Name = filePath;
             ArticleOne.Content = temp;
