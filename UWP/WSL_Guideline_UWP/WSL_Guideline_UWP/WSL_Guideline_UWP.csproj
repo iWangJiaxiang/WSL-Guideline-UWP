@@ -12,12 +12,17 @@
     <DefaultLanguage>en</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
-    <PackageCertificateKeyFile>WSL_Guideline_UWP_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>WSL_Guideline_UWP_StoreKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>035FD3B11B73267D8274C2674C6284805208B311</PackageCertificateThumbprint>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxPackageDir>H:\Onedrive\创造性\编程\WSL Guideline\</AppxPackageDir>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -132,6 +137,7 @@
     <Content Include="ArticleData\WSL-Guideline\中文\06-配置SSH.md" />
     <Content Include="ArticleData\WSL-Guideline\中文\07-通过脚本提高效率.md" />
     <Content Include="ArticleData\WSL-Guideline\README.md" />
+    <None Include="WSL_Guideline_UWP_StoreKey.pfx" />
     <None Include="WSL_Guideline_UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -203,6 +209,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <None Include="Package.xml" />
     <Content Include="priconfig.default.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

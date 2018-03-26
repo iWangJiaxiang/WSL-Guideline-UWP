@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="WSL-Guideline-UWP" Publisher="CN=imFel" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="b72faf6d-b707-4458-bb7e-cc9b21cb9c5f" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="34843WangJiaxiang.WSLGuideline" Publisher="CN=C0C8BD0B-4943-49B1-8EAB-852642645D6E" Version="1.1.1.0" />
+  <mp:PhoneIdentity PhoneProductId="7e35d991-bcb7-491b-bb59-47a1c205f60a" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>WSL_Guideline_UWP</DisplayName>
+    <DisplayName>WSL Guideline</DisplayName>
     <PublisherDisplayName>Wang Jiaxiang</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
