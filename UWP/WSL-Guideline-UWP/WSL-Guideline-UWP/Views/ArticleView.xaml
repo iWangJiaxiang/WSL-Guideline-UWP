@@ -14,7 +14,7 @@
     <Grid  Name="RootGrid">
         <controls:MasterDetailsView Name="MainMDView" 
                                     ItemsSource="{x:Bind ViewModel.Articles}" 
-                                    MasterPaneBackground="Transparent">
+                                    MasterPaneBackground="{ThemeResource SystemControlChromeMediumLowAcrylicElementMediumBrush}">
             <controls:MasterDetailsView.ItemTemplate>
                 <DataTemplate x:DataType="model:Article">
                     <StackPanel>

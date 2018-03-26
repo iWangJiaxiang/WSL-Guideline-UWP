@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Tag="AboutView">
 
-    <Grid Name="RootGrid" Background="Transparent">
+    <Grid Name="RootGrid" Background="{ThemeResource SystemControlChromeMediumLowAcrylicElementMediumBrush}">
         <StackPanel 
             Margin="20,20,0,0"
             VerticalAlignment="Top"

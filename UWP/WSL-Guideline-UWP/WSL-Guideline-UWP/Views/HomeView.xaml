@@ -11,7 +11,7 @@
     Tag="HomeView"
     NavigationCacheMode="Enabled">
 
-    <Grid Name="RootGrid" Background="Transparent">
+    <Grid Name="RootGrid" Background="{ThemeResource SystemControlChromeMediumLowAcrylicElementMediumBrush}">
         <ScrollViewer Background="Transparent">
             <control:MarkdownTextBlock
             Name="HomeMarkDown" 

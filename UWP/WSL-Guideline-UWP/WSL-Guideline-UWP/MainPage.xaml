@@ -94,7 +94,7 @@
                 </RelativePanel>
             </SplitView.Pane>
             <Frame
-                Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}" Name="ContentFrame" Navigated="ContentFrame_Navigated"></Frame>
+                 Name="ContentFrame" Navigated="ContentFrame_Navigated"></Frame>
         </SplitView>
         <Button Name="MenuButton" 
                 Grid.Row="1" 
