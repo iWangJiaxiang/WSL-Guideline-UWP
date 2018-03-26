@@ -59,7 +59,7 @@
                    OpenPaneLength="280"
                    CompactPaneLength="48"
                    Grid.Row="0"
-                   PaneBackground="{StaticResource SystemControlAcrylicWindowMediumHighBrush}"
+                   PaneBackground="{StaticResource SystemControlChromeHighAcrylicWindowMediumBrush}"
                    Grid.RowSpan="2">
             <SplitView.Pane>
                 <RelativePanel>
@@ -79,7 +79,7 @@
                                     </Grid.ColumnDefinitions>
                                     <TextBlock FontFamily="{x:Bind IconFontFamilly}"
                                                Text="{x:Bind IconContent}"
-                                               FontSize="20"
+                                               FontSize="22"
                                                Grid.Column="0"
                                               VerticalAlignment="Center"/>
                                     <TextBlock Text="{x:Bind MenuContent}"
@@ -93,7 +93,7 @@
                     </ListView>
                 </RelativePanel>
             </SplitView.Pane>
-            <Frame Name="ContentFrame"></Frame>
+            <Frame Name="ContentFrame" Navigated="ContentFrame_Navigated"></Frame>
         </SplitView>
         <Button Name="MenuButton" 
                 Grid.Row="1" 

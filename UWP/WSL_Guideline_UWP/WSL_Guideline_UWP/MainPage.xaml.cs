@@ -100,8 +100,7 @@ namespace WSL_Guideline_UWP
         {
             var currentMarginTop = MenuButton.Height +appTitleBarHeight;
             MenuListView.Margin = new Thickness(0, currentMarginTop, 0, 0);
-            ContentFrame.Padding = new Thickness(0, currentMarginTop, 0, 0);
-
+           // ContentFrame.Padding = new Thickness(0, currentMarginTop, 0, 0);
         }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
@@ -112,24 +111,49 @@ namespace WSL_Guideline_UWP
 
         private void MenuListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            switch (((MenuItem)((ListView)sender).SelectedItem).Tag)
+            string tag = ((MenuItem)((ListView)sender).SelectedItem).Tag;
+            if (tag == ContentFrame.CurrentSourcePageType.Name)
             {
-                case "Home":
+                return;
+            }
+            switch (tag)
+            {
+                case "HomeView":
                     ContentFrame.Navigate(typeof(HomeView));
                     break;
-                case "Article":
+                case "ArticleView":
                     ContentFrame.Navigate(typeof(ArticleView));
                     break;
-                case "About":
+                case "AboutView":
                     ContentFrame.Navigate(typeof(AboutView));
                     break;
-                default: break;
+                default:
+                    break;
             }
             if (NavMenu.DisplayMode != SplitViewDisplayMode.CompactInline)
             {
                 NavMenu.IsPaneOpen = false;
             }
             UpdateAppTitleVisibility();
+        }
+
+        private void ContentFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            var name = ContentFrame.CurrentSourcePageType.Name;
+            //To-do
+            //Bug：ListView还未初始化
+            //switch (name)
+            //{
+            //    case "HomeView":
+            //        break;
+            //    case "ArticleView":
+            //        MenuListView.SelectedIndex = 2;
+            //        break;
+            //    case "AboutView":
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
     }
 }

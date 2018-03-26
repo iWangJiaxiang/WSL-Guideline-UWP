@@ -7,28 +7,90 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:model="using:WSL_Guideline_UWP.Models"
-    mc:Ignorable="d">
+    mc:Ignorable="d" 
+    Tag="ArticleView"
+    NavigationCacheMode="Enabled">
 
     <Grid>
         <controls:MasterDetailsView Name="MainMDView"
+                                    SelectionChanged="MainMDView_SelectionChanged"
                                     ItemsSource="{x:Bind ViewModel.Articles}" 
-                                    MasterPaneBackground="{ThemeResource SystemControlAcrylicWindowBrush}">
+                                    MasterPaneBackground="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
             <controls:MasterDetailsView.ItemTemplate>
                 <DataTemplate x:DataType="model:Article">
                     <StackPanel>
-                        <TextBlock Text="{x:Bind Name}"/>
+                        <TextBlock
+                            Text="{x:Bind Name}"
+                            Margin="10,0,0,0"/>
                     </StackPanel>
                 </DataTemplate>
             </controls:MasterDetailsView.ItemTemplate>
+            <controls:MasterDetailsView.MasterHeader>
+                <StackPanel>
+                    <TextBlock x:Uid="ArticleList"
+                               FontSize="24"
+                               Margin="10,10,10,10"/>
+                </StackPanel>
+            </controls:MasterDetailsView.MasterHeader>
             <controls:MasterDetailsView.DetailsTemplate>
                 <DataTemplate x:DataType="model:Article">
-                    <ScrollViewer>
-                        <Grid>
-                            <controls:MarkdownTextBlock Text="{x:Bind Content}" ImageStretch="None" Margin="10,10,10,0"/>
-                        </Grid>
-                    </ScrollViewer>
+                    <Grid>
+                        <ScrollViewer ViewChanged="DetailScrollBar_ViewChanged">
+                            <Grid>
+                                <controls:MarkdownTextBlock 
+                                Text="{x:Bind Content}"
+                                LinkClicked="MarkdownTextBlock_LinkClicked"
+                                ImageStretch="None" 
+                                ParagraphMargin="0,10,0,20"
+                                Margin="10,48,10,36" 
+                                WrapCodeBlock="True"                                
+                                CodePadding="10,10,10,10"/>
+                            </Grid>
+                        </ScrollViewer>
+                        <Rectangle 
+                                VerticalAlignment="Top"
+                                Height="64"
+                                HorizontalAlignment="Stretch">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="White"/>
+                                    <GradientStop Color="Transparent" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <Rectangle 
+                                VerticalAlignment="Bottom"
+                                Height="64"
+                                HorizontalAlignment="Stretch">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Transparent"/>
+                                    <GradientStop Color="White" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Grid>
                 </DataTemplate>
             </controls:MasterDetailsView.DetailsTemplate>
+            <controls:MasterDetailsView.NoSelectionContent>
+                <Grid>
+                    <StackPanel
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Orientation="Vertical"
+                        Background="Transparent">
+                        <TextBlock
+                            x:Uid="MasterDetailViewNoContentTitle"
+                            HorizontalAlignment="Center"
+                            FontSize="40"/>
+                        <TextBlock
+                            x:Uid="MasterDetailViewNoContentText"
+                            HorizontalAlignment="Center"
+                            Margin="0,10,0,0"
+                            FontSize="24"/>
+                    </StackPanel>
+                </Grid>
+            </controls:MasterDetailsView.NoSelectionContent>
         </controls:MasterDetailsView>
     </Grid>
 </Page>

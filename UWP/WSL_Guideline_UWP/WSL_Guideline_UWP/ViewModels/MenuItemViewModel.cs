@@ -21,11 +21,11 @@ namespace WSL_Guideline_UWP.ViewModels
             menuItems = new ObservableCollection<MenuItem>();
             var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
 
-            menuItems.Add(new MenuItem("Segoe MDL2 Assets", "\xE10F", resourceLoader.GetString("MenuItem_Home"),"Home"));
+            menuItems.Add(new MenuItem("Segoe MDL2 Assets", "\xE10F", resourceLoader.GetString("MenuItem_Home"),"HomeView"));
 
-            menuItems.Add(new MenuItem("Segoe MDL2 Assets", "\xE81E", resourceLoader.GetString("MenuItem_Article"),"Article"));
+            menuItems.Add(new MenuItem("Segoe MDL2 Assets", "\xE81E", resourceLoader.GetString("MenuItem_Article"), "ArticleView"));
 
-            menuItems.Add(new MenuItem("Segoe MDL2 Assets", "\xEB95", resourceLoader.GetString("MenuItem_About"),"About"));
+            menuItems.Add(new MenuItem("Segoe MDL2 Assets", "\xEB95", resourceLoader.GetString("MenuItem_About"), "AboutView"));
         }
 
     }

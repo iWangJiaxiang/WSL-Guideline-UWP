@@ -4,10 +4,47 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:WSL_Guideline_UWP.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:model="using:WSL_Guideline_UWP.Models"
+    xmlns:control="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Tag="HomeView"
+    NavigationCacheMode="Enabled">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid Background="{ThemeResource SystemControlChromeHighAcrylicElementMediumBrush}">
+        <ScrollViewer>
+            <control:MarkdownTextBlock
+            Name="HomeMarkDown" ImageStretch="None" 
+            Text="{x:Bind ViewModel.ArticleOne.Content,Mode=OneWay}"
+            LinkClicked="HomeMarkDown_LinkClicked"
+            ParagraphMargin="0,10,0,20"
+            WrapCodeBlock="True" 
+            Margin="20,64,20,48"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            CodePadding="10,10,10,10"/>
+        </ScrollViewer>
+        <Rectangle 
+                                VerticalAlignment="Top"
+                                Height="64"
+                                HorizontalAlignment="Stretch">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="Transparent" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle 
+                                VerticalAlignment="Bottom"
+                                Height="64"
+                                HorizontalAlignment="Stretch">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Transparent"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
     </Grid>
 </Page>

@@ -95,18 +95,22 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ArticlesViewModel.cs" />
     <Compile Include="ViewModels\ArticleViewModel.cs" />
     <Compile Include="ViewModels\MenuItemViewModel.cs" />
     <Compile Include="Views\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ArticleView.cs" />
+    <Compile Include="Views\ArticleView.cs">
+      <DependentUpon>ArticleView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
@@ -120,9 +124,41 @@
     </AppxManifest>
     <PRIResource Include="Strings\zh-CN\Resources.resw" />
     <PRIResource Include="Strings\en\Resources.resw" />
+    <Content Include="ArticleData\WSL-Guideline\English\00-About.md" />
+    <Content Include="ArticleData\WSL-Guideline\中文\00-项目愿景.md" />
+    <Content Include="ArticleData\WSL-Guideline\中文\01-WSL入门.md" />
+    <Content Include="ArticleData\WSL-Guideline\中文\02-安装配置.md" />
+    <Content Include="ArticleData\WSL-Guideline\中文\03-避免的坑.md" />
+    <Content Include="ArticleData\WSL-Guideline\中文\04-安装桌面环境.md" />
+    <Content Include="ArticleData\WSL-Guideline\中文\05-自定义桌面环境.md" />
+    <Content Include="ArticleData\WSL-Guideline\中文\06-配置SSH.md" />
+    <Content Include="ArticleData\WSL-Guideline\中文\07-通过脚本提高效率.md" />
+    <Content Include="ArticleData\WSL-Guideline\README.md" />
     <None Include="WSL_Guideline_UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\control-panel.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\input-command.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\open-powershell.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\open-wsl.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\search-result.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\ubuntu-finish.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\ubuntu-install.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\ubuntu-open.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\03-避免的坑\bash.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\03-避免的坑\package.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\04-安装桌面环境\ccsm_1.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\04-安装桌面环境\ccsm_2.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\04-安装桌面环境\ccsm_3.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\04-安装桌面环境\final.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\04-安装桌面环境\x1.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\04-安装桌面环境\x2.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\05-自定义桌面环境\launcher.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\05-自定义桌面环境\mac.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\05-自定义桌面环境\plank.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\05-自定义桌面环境\unity.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\06-配置SSH\ssh-server-for-windows.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\06-配置SSH\ssh.png" />
     <Content Include="priconfig.default.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

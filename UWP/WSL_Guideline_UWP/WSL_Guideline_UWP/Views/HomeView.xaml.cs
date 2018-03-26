@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using WSL_Guideline_UWP.ViewModels;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -22,9 +23,26 @@ namespace WSL_Guideline_UWP.Views
     /// </summary>
     public sealed partial class HomeView : Page
     {
+        private string HomeArticle = @"\ArticleData\WSL-Guideline\README.md";
+
+        private ArticleViewModel ViewModel;
+
         public HomeView()
         {
             this.InitializeComponent();
+
+            ViewModel = new ArticleViewModel();
+            ViewModel.LoadModelAsync(HomeArticle);
+        }
+
+        private async void HomeMarkDown_LinkClicked(object sender, Microsoft.Toolkit.Uwp.UI.Controls.LinkClickedEventArgs e)
+        {
+            if (e.Link.StartsWith("http")|| e.Link.StartsWith("mail"))
+                await Windows.System.Launcher.LaunchUriAsync(new Uri(e.Link));
+            else
+            {
+                this.Frame.Navigate(typeof(ArticleView));
+            }
         }
     }
 }

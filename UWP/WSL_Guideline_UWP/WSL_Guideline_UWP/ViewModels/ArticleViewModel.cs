@@ -1,55 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 using WSL_Guideline_UWP.Models;
+using WSL_Guideline_UWP.Helpers;
+using GalaSoft.MvvmLight;
 
 namespace WSL_Guideline_UWP.ViewModels
 {
-    public class ArticleViewModel
+    public class ArticleViewModel: ViewModelBase
     {
-        private ObservableCollection<Article> articles;
+        private Article articleOne;
 
-        public ObservableCollection<Article> Articles
+        public Article ArticleOne
         {
-            get { return articles; }
+            get { return articleOne; }
+            set { articleOne = value; }
         }
 
         public ArticleViewModel()
         {
-            articles = new ObservableCollection<Article>();
-            string localpic = ApplicationData.Current.LocalFolder.Path + "\\2.png";
+            articleOne = new Article();
+        }
 
-            #region 给List赋值
-            Articles.Add(new Article()
-            {
-                Name = "Article1",
-                Content = @"# WSL 使用指南
+        public async Task LoadModelAsync(string filePath)
+        {
+            FileHelper fileHelper = new FileHelper();
 
-### 01 WSL入门
+            string temp = await fileHelper.ReadFileToStringAsync(filePath);
+            temp = await fileHelper.FormatStringAsync(temp);
 
-#### 什么是WSL
-
-![test](/Assets/StoreLogo.png)
-
-&emsp;&emsp; WSL是“Windows Subsystem for Linux”的缩写，顾名思义，WSL就是Windows系统的Linux子系统，其作为Windows组件搭载在Windows10周年更新（1607）后的Windows系统中。 "
-            });
-            Articles[0].Content = Articles[0].Content.Replace("/Assets/StoreLogo.png", localpic);
-            Articles.Add(new Article()
-            {
-                Name = "Article2",
-                Content = Articles[0].Content
-            });
-            Articles.Add(new Article()
-            {
-                Name = "Article2",
-                Content = Articles[0].Content
-            });
-            #endregion
-
+            ArticleOne.Name = filePath;
+            ArticleOne.Content = temp;
         }
 
     }
