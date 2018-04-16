@@ -25,12 +25,12 @@ namespace WSL_Guideline_UWP.ViewModels
             articleOne = new Article();
         }
 
-        public async Task LoadModelAsync(string filePath)
+        public async void LoadModelAsync(string filePath)
         {
             FileHelper fileHelper = new FileHelper();
 
             string temp = await fileHelper.ReadFileToStringAsync(filePath);
-            temp = await fileHelper.FormatStringAsync(temp,"");
+            temp = fileHelper.FormatString(temp,"");
 
             ArticleOne.Name = filePath;
             ArticleOne.Content = temp;

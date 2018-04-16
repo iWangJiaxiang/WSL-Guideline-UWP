@@ -14,20 +14,20 @@
     <Grid 
         Name="RootGrid"
         Background="{ThemeResource ContentAcrylicBrush}">
-        <ScrollViewer Background="Transparent">
+        <ScrollViewer Background="Transparent" VerticalScrollBarVisibility="Hidden">
             <control:MarkdownTextBlock
-            Name="HomeMarkDown" 
+                Name="HomeMarkDown" 
                 UriPrefix="ms-appx://"
                 ImageStretch="UniformToFill" 
-            Text="{x:Bind ViewModel.ArticleOne.Content,Mode=OneWay}"
-            LinkClicked="HomeMarkDown_LinkClicked"
-            ParagraphMargin="0,10,0,20"
-            WrapCodeBlock="True" 
-            Margin="20,10,20,48"
-            Background="Transparent"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            CodePadding="10,10,10,10"/>
+                Text="{x:Bind ViewModel.ArticleOne.Content,Mode=OneWay}"
+                LinkClicked="HomeMarkDown_LinkClicked"
+                ParagraphMargin="0,10,0,20"
+                WrapCodeBlock="True" 
+                Margin="20,10,20,48"
+                Background="Transparent"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                CodePadding="10,10,10,10"/>
         </ScrollViewer>
     </Grid>
 </Page>

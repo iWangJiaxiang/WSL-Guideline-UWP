@@ -25,7 +25,7 @@ namespace WSL_Guideline_UWP.ViewModels
             articles = new ObservableCollection<Article>();
         }
 
-        public async Task LoadModelsAsync(string folderPath)
+        public async void LoadModelsAsync(string folderPath)
         {
             FileHelper fileHelper = new FileHelper();
 
@@ -41,7 +41,7 @@ namespace WSL_Guideline_UWP.ViewModels
             foreach (var file in files)
             {
                 temp = await fileHelper.ReadFileToStringAsync(file);
-                temp = await fileHelper.FormatStringAsync(temp,file.DisplayName);
+                temp = fileHelper.FormatString(temp,file.DisplayName);
 
                 Articles.Add(new Article(file.DisplayName, temp));
             }

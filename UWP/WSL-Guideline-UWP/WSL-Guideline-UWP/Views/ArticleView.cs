@@ -59,12 +59,30 @@ namespace WSL_Guideline_UWP.Views
             }
         }
 
+        string articleName = "";
+
         private void ScrollViewer_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
         {
             if (args.NewValue == null)
                 return;
+
+            /* 加入下一段的判断是因为
+             * 当Markdown文本中的嵌入图片url来源于网络时
+             * 在Markdown加载完成后会触发第一次意料之中的该DataContextChanged事件
+             * 但是在网络图片加载完成后会触发第二次意料外的该事件
+             * 如果在图片载入的时间内用户已经向下滚动了Markdown文本
+             * 那么在图片载入完成后会因为触发了DataContextChanged事件
+             * 导致页面自动回到顶部
+             */
+            string newArticleName = ((Article)args.NewValue).Name;
+            if (articleName == newArticleName)
+                return;
+            articleName = newArticleName;
+
             ScrollViewer scrollViewer = (ScrollViewer)sender;
-            scrollViewer.ScrollToVerticalOffset(0);
+            //下面的已过时
+            //scrollViewer.ScrollToVerticalOffset(0);
+            scrollViewer.ChangeView(null, 0, null);
         }
     }
 }

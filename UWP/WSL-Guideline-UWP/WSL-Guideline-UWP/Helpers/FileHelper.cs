@@ -60,14 +60,18 @@ namespace WSL_Guideline_UWP.Helpers
         }
 
 
-        public async Task<string> FormatStringAsync(string input,string fileName)
+        public string FormatString(string input,string fileName)
         {
             string patternPrefix = @"(&emsp;&emsp;<img)(.*?src=""..)";
             string patternSuffix = @""">";
 
-            input = Regex.Replace(input, patternPrefix, @"![](ms-appx:///ArticleData/WSL-Guideline");
-            input = Regex.Replace(input, patternSuffix, @")");
+            input = Regex.Replace(input, patternPrefix, "![](ms-appx:/ArticleData/WSL-Guideline");
+            input = Regex.Replace(input, patternSuffix, ")\r\n\r\n");
 
+            //测试是否图片能显示，测试通过则注释掉，以下均通过测试
+            //input += @"\n\n![](ms-appx:/ArticleData/WSL-Guideline/images/02-安装配置/control-panel.png)";
+            //input += "\n\n![](ms-appx:/ArticleData/WSL-Guideline/images/02-安装配置/control-panel.png)";
+            //input += "\n\n![](https://raw.githubusercontent.com/WangJiaxiang96/WSL-Guideline/master/WSL-Guideline/images/02-安装配置/open-powershell.png)";
             return input;
         }
 

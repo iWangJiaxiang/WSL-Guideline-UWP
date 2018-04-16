@@ -141,14 +141,30 @@
     <None Include="WSL_Guideline_UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\control-panel.png" />
-    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\input-command.png" />
-    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\open-powershell.png" />
-    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\open-wsl.png" />
-    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\search-result.png" />
-    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\ubuntu-finish.png" />
-    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\ubuntu-install.png" />
-    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\ubuntu-open.png" />
+    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\control-panel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\input-command.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\open-powershell.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\open-wsl.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\search-result.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\ubuntu-finish.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\ubuntu-install.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ArticleData\WSL-Guideline\images\02-安装配置\ubuntu-open.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="ArticleData\WSL-Guideline\images\03-避免的坑\bash.png" />
     <Content Include="ArticleData\WSL-Guideline\images\03-避免的坑\package.png" />
     <Content Include="ArticleData\WSL-Guideline\images\04-安装桌面环境\ccsm_1.png" />
@@ -263,7 +279,14 @@
       <Version>5.4.1</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <SDKReference Include="WindowsDesktop, Version=10.0.16299.0">
+      <Name>Windows Desktop Extensions for the UWP</Name>
+    </SDKReference>
+    <SDKReference Include="WindowsMobile, Version=10.0.16299.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
