@@ -1,5 +1,5 @@
 # WSL-Guideline-UWP 
 
-基于[《WSL-Guideline》](https://github.com/WangJiaxiang96/WSL-Guideline)内容的UWP应用
+鍩轰簬[銆奧SL-Guideline銆媇(https://github.com/WangJiaxiang96/WSL-Guideline)鍐呭鐨刄WP搴旂敤
 
-现已发布在Microsoft Store（搜索“WSL Guideline”）
+鐜板凡鍙戝竷鍦╗Microsoft Store](https://www.microsoft.com/en-us/store/p/wsl-guideline/9n73v46804z8)
