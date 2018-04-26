@@ -15,7 +15,9 @@
         Name="RootGrid"
         Background="{ThemeResource ContentAcrylicBrush}">
         <ScrollViewer Background="Transparent" VerticalScrollBarVisibility="Hidden">
-            <control:MarkdownTextBlock
+            <control:MarkdownTextBlock 
+                HorizontalRuleMargin="3,20,3,20"
+                HorizontalRuleBrush="Transparent"
                 Name="HomeMarkDown" 
                 UriPrefix="ms-appx://"
                 ImageStretch="UniformToFill" 

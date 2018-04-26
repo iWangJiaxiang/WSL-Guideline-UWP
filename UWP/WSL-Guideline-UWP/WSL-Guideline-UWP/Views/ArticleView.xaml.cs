@@ -18,6 +18,7 @@ using System.Collections.ObjectModel;
 using Windows.Storage;
 using WSL_Guideline_UWP.ViewModels;
 using WSL_Guideline_UWP.Helpers;
+using WSL_Guideline_UWP.Controls;
 
 namespace WSL_Guideline_UWP.Views
 {
@@ -83,6 +84,12 @@ namespace WSL_Guideline_UWP.Views
             //下面的已过时
             //scrollViewer.ScrollToVerticalOffset(0);
             scrollViewer.ChangeView(null, 0, null);
+        }
+
+        private void Md_ImageClicked(object sender, Microsoft.Toolkit.Uwp.UI.Controls.LinkClickedEventArgs e)
+        {
+            ImgViewer.Source =null;
+            ImgViewer.Show();
         }
     }
 }

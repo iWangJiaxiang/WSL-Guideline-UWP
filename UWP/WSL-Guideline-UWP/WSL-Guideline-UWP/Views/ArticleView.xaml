@@ -5,17 +5,18 @@
     xmlns:local="using:WSL_Guideline_UWP.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:controls="using:WSL_Guideline_UWP.Controls"
     xmlns:model="using:WSL_Guideline_UWP.Models"
     mc:Ignorable="d" 
     Tag="ArticleView"
     NavigationCacheMode="Enabled">
 
     <Grid  Name="RootGrid">
-        <controls:MasterDetailsView Name="MainMDView" 
+        <toolkit:MasterDetailsView Name="MainMDView" 
                                     ItemsSource="{x:Bind ViewModel.Articles}" 
                                     MasterPaneBackground="{ThemeResource ContentAcrylicBrush}">
-            <controls:MasterDetailsView.ItemTemplate>
+            <toolkit:MasterDetailsView.ItemTemplate>
                 <DataTemplate x:DataType="model:Article">
                     <StackPanel>
                         <TextBlock
@@ -23,27 +24,29 @@
                             Margin="10,0,0,0"/>
                     </StackPanel>
                 </DataTemplate>
-            </controls:MasterDetailsView.ItemTemplate>
-            <controls:MasterDetailsView.MasterHeader>
+            </toolkit:MasterDetailsView.ItemTemplate>
+            <toolkit:MasterDetailsView.MasterHeader>
                 <StackPanel>
                     <TextBlock x:Uid="ArticleList"
                                FontSize="24"
                                Margin="10,10,10,10"/>
                 </StackPanel>
-            </controls:MasterDetailsView.MasterHeader>
-            <controls:MasterDetailsView.DetailsTemplate>
+            </toolkit:MasterDetailsView.MasterHeader>
+            <toolkit:MasterDetailsView.DetailsTemplate>
                 <DataTemplate x:DataType="model:Article">
                     <Grid>
                         <ScrollViewer DataContextChanged="ScrollViewer_DataContextChanged">
                             <Grid>
-                                <controls:MarkdownTextBlock x:Name="md"
-                                Text="{x:Bind Content}" 
-                                LinkClicked="MarkdownTextBlock_LinkClicked"
-                                ImageStretch="UniformToFill" 
-                                ParagraphMargin="0,10,0,20"
-                                WrapCodeBlock="True"
-                                Margin="10,28,10,20"
-                                CodePadding="10,10,10,10"/>
+                                <toolkit:MarkdownTextBlock x:Name="md"
+                                                            Text="{x:Bind Content}" 
+                                                            LinkClicked="MarkdownTextBlock_LinkClicked"
+                                                            ImageStretch="UniformToFill" 
+                                                            ParagraphMargin="0,20,0,20"
+                                                            WrapCodeBlock="True"
+                                                            Margin="10,28,10,20" 
+                                                           ImageClicked="Md_ImageClicked"
+                                                            HorizontalRuleMargin="3,20,3,10"
+                                                            CodePadding="10,10,10,10"/>
                             </Grid>
                         </ScrollViewer>
 
@@ -71,8 +74,8 @@
                         </Rectangle>
                     </Grid>
                 </DataTemplate>
-            </controls:MasterDetailsView.DetailsTemplate>
-            <controls:MasterDetailsView.NoSelectionContent>
+            </toolkit:MasterDetailsView.DetailsTemplate>
+            <toolkit:MasterDetailsView.NoSelectionContent>
                 <Grid>
                     <StackPanel
                         VerticalAlignment="Center"
@@ -90,7 +93,10 @@
                             FontSize="24"/>
                     </StackPanel>
                 </Grid>
-            </controls:MasterDetailsView.NoSelectionContent>
-        </controls:MasterDetailsView>
+            </toolkit:MasterDetailsView.NoSelectionContent>
+        </toolkit:MasterDetailsView>
+        <controls:ImageViewer Name="ImgViewer"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch"/>
     </Grid>
 </Page>
