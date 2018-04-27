@@ -35,5 +35,11 @@ namespace WSL_Guideline_UWP.Controls
         {
             Hide();
         }
+
+        private void _img_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            AjustImageSize();
+        }
+
     }
 }

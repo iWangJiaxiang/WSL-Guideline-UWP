@@ -38,6 +38,8 @@ namespace WSL_Guideline_UWP.Views
 
             CurrentMarginTop.OnCurrentMarginTopChanged += CurrentMarginTop_OnCurrentMarginTopChanged;
             CurrentMarginTop_OnCurrentMarginTopChanged();
+
+            ImgViewer.Hide();
         }
         private void CurrentMarginTop_OnCurrentMarginTopChanged()
         {

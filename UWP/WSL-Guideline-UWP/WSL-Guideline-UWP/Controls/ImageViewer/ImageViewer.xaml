@@ -15,12 +15,13 @@
                         <Image Name="MainImage"
                                Source="{TemplateBinding Source}"
                                HorizontalAlignment="Center"
+                               Stretch="Uniform"
                                VerticalAlignment="Center"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Setter Property="Visibility"
-                Value="Collapsed"/>
+                Value="Visible"/>
     </Style>
 </ResourceDictionary>

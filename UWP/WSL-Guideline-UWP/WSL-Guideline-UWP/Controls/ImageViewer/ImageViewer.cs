@@ -40,6 +40,7 @@ namespace WSL_Guideline_UWP.Controls
         public ImageViewer()
         {
             this.DefaultStyleKey = typeof(ImageViewer);
+            OnApplyTemplate();
         }
 
         protected override void OnApplyTemplate()
@@ -52,6 +53,7 @@ namespace WSL_Guideline_UWP.Controls
                 _img.Tapped += _img_Tapped;
                 _img.PointerWheelChanged += _img_PointerWheelChanged;
                 _img.RightTapped += _img_RightTapped;
+                _img.SizeChanged += _img_SizeChanged;
             }
             if (_bg != null)
             {
@@ -64,6 +66,27 @@ namespace WSL_Guideline_UWP.Controls
         public void Show()
         {
             this.Visibility = Visibility.Visible;
+            if (_img != null)
+            {
+                //AjustImageSize();
+            }
+        }
+
+        /// <summary>
+        /// 调整图片显示大小为当前控价大小的60%（以图片长宽中数值最大的数为基准计算）
+        /// </summary>
+        private void AjustImageSize()
+        {
+            double height = _img.ActualHeight;
+            double width = _img.ActualWidth;
+            if (height >= width)
+            {
+                _img.Height = 0.6 * this.ActualHeight;
+            }
+            else
+            {
+                _img.Width = 0.6 * this.ActualWidth;
+            }
         }
 
         public void Hide()

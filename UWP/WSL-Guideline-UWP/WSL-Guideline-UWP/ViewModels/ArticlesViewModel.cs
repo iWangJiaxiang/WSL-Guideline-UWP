@@ -42,7 +42,6 @@ namespace WSL_Guideline_UWP.ViewModels
             {
                 temp = await fileHelper.ReadFileToStringAsync(file);
                 temp = fileHelper.FormatString(temp,file.DisplayName);
-
                 Articles.Add(new Article(file.DisplayName, temp));
             }
         }
