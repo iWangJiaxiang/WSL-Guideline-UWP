@@ -88,8 +88,8 @@ namespace WSL_Guideline_UWP.Views
 
         private void Md_ImageClicked(object sender, Microsoft.Toolkit.Uwp.UI.Controls.LinkClickedEventArgs e)
         {
-            ImgViewer.Source =null;
-            ImgViewer.Show();
+            //ImgViewer.Source =null;
+            //ImgViewer.Show();
         }
     }
 }

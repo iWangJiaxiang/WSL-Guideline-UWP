@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:controls="using:WSL_Guideline_UWP.Controls"
+    xmlns:control="using:WSL_Guideline_UWP.Controls"
     xmlns:model="using:WSL_Guideline_UWP.Models"
     mc:Ignorable="d" 
     Tag="ArticleView"
@@ -95,7 +95,7 @@
                 </Grid>
             </toolkit:MasterDetailsView.NoSelectionContent>
         </toolkit:MasterDetailsView>
-        <controls:ImageViewer Name="ImgViewer"
+        <control:ImageViewer Name="ImgViewer"
                               HorizontalAlignment="Stretch"
                               VerticalAlignment="Stretch"/>
     </Grid>
