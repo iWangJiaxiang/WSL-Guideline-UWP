@@ -13,7 +13,7 @@
     NavigationCacheMode="Enabled">
 
     <Grid  Name="RootGrid">
-        <toolkit:MasterDetailsView Name="MainMDView" 
+        <toolkit:MasterDetailsView x:Name="MainMDView" 
                                     ItemsSource="{x:Bind ViewModel.Articles}" 
                                     MasterPaneBackground="{ThemeResource ContentAcrylicBrush}">
             <toolkit:MasterDetailsView.ItemTemplate>
@@ -95,7 +95,7 @@
                 </Grid>
             </toolkit:MasterDetailsView.NoSelectionContent>
         </toolkit:MasterDetailsView>
-        <control:ImageViewer Name="ImgViewer"
+        <control:ImageViewer x:Name="ImgViewer"
                               HorizontalAlignment="Stretch"
                               VerticalAlignment="Stretch"/>
     </Grid>

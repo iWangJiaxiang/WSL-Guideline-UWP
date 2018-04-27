@@ -1,25 +1,10 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:control="using:WSL_Guideline_UWP.Controls" 
-    xmlns:local="using:WSL_Guideline_UWP">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!--ImageViewer¿Ø¼þ-->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ms-appx:///Controls/ImageViewer/ImageViewer.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 
-
-    <Style TargetType="control:ImageViewer">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="control:ImageViewer">
-                    <Grid Name="bg"
-                          Background="Black"
-                          Opacity="0.4">
-                        <Image Name="img"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"/>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="Visibility"
-                Value="Collapsed"/>
-    </Style>
 </ResourceDictionary>

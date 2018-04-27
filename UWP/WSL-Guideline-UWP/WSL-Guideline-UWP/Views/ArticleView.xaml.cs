@@ -19,6 +19,7 @@ using Windows.Storage;
 using WSL_Guideline_UWP.ViewModels;
 using WSL_Guideline_UWP.Helpers;
 using WSL_Guideline_UWP.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace WSL_Guideline_UWP.Views
 {
@@ -88,8 +89,8 @@ namespace WSL_Guideline_UWP.Views
 
         private void Md_ImageClicked(object sender, Microsoft.Toolkit.Uwp.UI.Controls.LinkClickedEventArgs e)
         {
-            //ImgViewer.Source =null;
-            //ImgViewer.Show();
+            ImgViewer.Source = new BitmapImage(new Uri(e.Link));
+            ImgViewer.Show();
         }
     }
 }
