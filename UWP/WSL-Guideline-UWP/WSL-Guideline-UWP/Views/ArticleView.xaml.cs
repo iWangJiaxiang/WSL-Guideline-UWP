@@ -94,5 +94,6 @@ namespace WSL_Guideline_UWP.Views
             ImgViewer.Source = new BitmapImage(new Uri(e.Link));
             ImgViewer.Show();
         }
+
     }
 }

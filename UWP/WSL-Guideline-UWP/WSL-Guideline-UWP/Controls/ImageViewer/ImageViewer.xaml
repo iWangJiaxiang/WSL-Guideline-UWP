@@ -12,11 +12,19 @@
                           Background="Black"
                           Opacity="0.4">
                         </Grid>
-                        <Image Name="MainImage"
-                               Source="{TemplateBinding Source}"
-                               HorizontalAlignment="Center"
-                               Stretch="Uniform"
-                               VerticalAlignment="Center"/>
+                        <ScrollViewer x:Name="ZoomScrollViewer"
+                                      ZoomMode="Enabled"
+                                      IsZoomInertiaEnabled="True"
+                                      VerticalScrollBarVisibility="Auto"
+                                      HorizontalScrollBarVisibility="Auto"
+                                      MinZoomFactor="0.5"
+                                      MaxZoomFactor="5">
+                            <ScrollViewer.Content>
+                            <Image Name="MainImage"
+                                   Source="{TemplateBinding Source}"
+                                   Stretch="Uniform"/>
+                            </ScrollViewer.Content>
+                        </ScrollViewer>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

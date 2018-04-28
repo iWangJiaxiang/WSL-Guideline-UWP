@@ -35,7 +35,11 @@
             <toolkit:MasterDetailsView.DetailsTemplate>
                 <DataTemplate x:DataType="model:Article">
                     <Grid>
-                        <ScrollViewer DataContextChanged="ScrollViewer_DataContextChanged">
+                        <ScrollViewer DataContextChanged="ScrollViewer_DataContextChanged" 
+                                      IsVerticalRailEnabled="True"
+                                      IsVerticalScrollChainingEnabled="True" 
+                                      IsDeferredScrollingEnabled="True"
+                                      IsScrollInertiaEnabled="True">
                             <StackPanel Orientation="Vertical">
                                 <toolkit:MarkdownTextBlock x:Name="md"
                                                             Text="{x:Bind Content}" 
@@ -43,11 +47,12 @@
                                                             ImageStretch="UniformToFill" 
                                                             ParagraphMargin="0,20,0,20"
                                                             WrapCodeBlock="True"
-                                                            Margin="10,28,10,20" 
-                                                           ImageClicked="Md_ImageClicked"
+                                                            Margin="10,28,10,20"
+                                                            ImageClicked="Md_ImageClicked"
                                                             HorizontalRuleMargin="3,20,3,10"
-                                                           HorizontalAlignment="Stretch"
+                                                            HorizontalAlignment="Stretch"
                                                             CodePadding="10,10,10,10"/>
+                                <!--文章末尾的空白占位符-->
                                 <Rectangle Fill="Transparent"
                                            Width="1"
                                            Height="65"/>

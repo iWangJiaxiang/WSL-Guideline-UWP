@@ -20,7 +20,7 @@ namespace WSL_Guideline_UWP.Controls
 
         private Image _img;
         private Grid _bg;
-
+        private ScrollViewer _zoom;
         #endregion
 
         #region DependencyProperty
@@ -47,17 +47,19 @@ namespace WSL_Guideline_UWP.Controls
         {
             _img = (Image)GetTemplateChild("MainImage");
             _bg = (Grid)GetTemplateChild("BackgroundGrid");
+            _zoom = (ScrollViewer)GetTemplateChild("ZoomScrollViewer");
 
             if (_img != null)
             {
                 _img.Tapped += _img_Tapped;
-                _img.PointerWheelChanged += _img_PointerWheelChanged;
                 _img.RightTapped += _img_RightTapped;
                 _img.SizeChanged += _img_SizeChanged;
+                _img.DoubleTapped += _img_DoubleTapped;
+                _img.PointerWheelChanged += _img_PointerWheelChanged;
             }
-            if (_bg != null)
+            if (_zoom != null)
             {
-                _bg.Tapped += _bg_Tapped;
+                _zoom.Tapped += _zoom_Tapped;
             }
 
             base.OnApplyTemplate();
@@ -66,10 +68,6 @@ namespace WSL_Guideline_UWP.Controls
         public void Show()
         {
             this.Visibility = Visibility.Visible;
-            if (_img != null)
-            {
-                //AjustImageSize();
-            }
         }
 
         /// <summary>
@@ -87,11 +85,21 @@ namespace WSL_Guideline_UWP.Controls
             {
                 _img.Width = 0.6 * this.ActualWidth;
             }
+
         }
 
         public void Hide()
         {
             this.Visibility = Visibility.Collapsed;
+
+            if(_zoom!=null)
+            {           
+                //将图片缩放倍数还原
+                _zoom.ChangeView(null, null, 1);
+
+                
+            }
+
         }
     }
 }
