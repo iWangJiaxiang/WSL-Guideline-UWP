@@ -6,8 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:control="using:WSL_Guideline_UWP.Controls"
     xmlns:model="using:WSL_Guideline_UWP.Models"
+    xmlns:control="using:WJX.UWP.Controls"
     mc:Ignorable="d" 
     Tag="ArticleView"
     NavigationCacheMode="Enabled">
@@ -104,8 +104,6 @@
                 </Grid>
             </toolkit:MasterDetailsView.NoSelectionContent>
         </toolkit:MasterDetailsView>
-        <control:ImageViewer x:Name="ImgViewer"
-                              HorizontalAlignment="Stretch"
-                              VerticalAlignment="Stretch"/>
+        <control:ImageViewerNew x:Name="iv" Visibility="Collapsed"/>
     </Grid>
 </Page>

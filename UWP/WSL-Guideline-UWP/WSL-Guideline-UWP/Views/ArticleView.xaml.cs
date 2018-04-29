@@ -18,7 +18,7 @@ using System.Collections.ObjectModel;
 using Windows.Storage;
 using WSL_Guideline_UWP.ViewModels;
 using WSL_Guideline_UWP.Helpers;
-using WSL_Guideline_UWP.Controls;
+using WJX.UWP.Controls;
 using Windows.UI.Xaml.Media.Imaging;
 
 namespace WSL_Guideline_UWP.Views
@@ -38,8 +38,6 @@ namespace WSL_Guideline_UWP.Views
 
             CurrentMarginTop.OnCurrentMarginTopChanged += CurrentMarginTop_OnCurrentMarginTopChanged;
             CurrentMarginTop_OnCurrentMarginTopChanged();
-
-            ImgViewer.Hide();
         }
         private void CurrentMarginTop_OnCurrentMarginTopChanged()
         {
@@ -91,8 +89,8 @@ namespace WSL_Guideline_UWP.Views
 
         private void Md_ImageClicked(object sender, Microsoft.Toolkit.Uwp.UI.Controls.LinkClickedEventArgs e)
         {
-            ImgViewer.Source = new BitmapImage(new Uri(e.Link));
-            ImgViewer.Show();
+            iv.Source = new BitmapImage(new Uri(e.Link));
+            iv.Show();
         }
 
     }
