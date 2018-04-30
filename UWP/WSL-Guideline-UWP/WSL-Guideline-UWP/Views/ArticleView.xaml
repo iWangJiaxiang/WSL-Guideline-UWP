@@ -11,7 +11,11 @@
     mc:Ignorable="d" 
     Tag="ArticleView"
     NavigationCacheMode="Enabled">
-
+    <Page.Transitions>
+        <TransitionCollection>
+            <ContentThemeTransition/>
+        </TransitionCollection>
+    </Page.Transitions>
     <Grid  Name="RootGrid">
         <toolkit:MasterDetailsView x:Name="MainMDView" 
                                     ItemsSource="{x:Bind ViewModel.Articles}" 

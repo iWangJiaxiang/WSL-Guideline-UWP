@@ -10,7 +10,11 @@
     mc:Ignorable="d"
     Tag="HomeView"
     NavigationCacheMode="Enabled">
-
+    <Page.Transitions>
+        <TransitionCollection>
+            <ContentThemeTransition/>
+        </TransitionCollection>
+    </Page.Transitions>
     <Grid 
         Name="RootGrid"
         Background="{ThemeResource ContentAcrylicBrush}">
