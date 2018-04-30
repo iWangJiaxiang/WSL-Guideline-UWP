@@ -108,6 +108,6 @@
                 </Grid>
             </toolkit:MasterDetailsView.NoSelectionContent>
         </toolkit:MasterDetailsView>
-        <control:ImageViewerNew x:Name="iv" Visibility="Collapsed"/>
+        <control:ImageViewer x:Name="iv" Visibility="Collapsed"/>
     </Grid>
 </Page>
