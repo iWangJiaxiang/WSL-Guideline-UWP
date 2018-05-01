@@ -95,9 +95,8 @@
                     </ListView>
                 </RelativePanel>
             </SplitView.Pane>
-            <Frame
-                 Name="ContentFrame"
-                Background="{ThemeResource ContentAcrylicBrush}">                
+            <Frame Name="ContentFrame"
+                   Background="{ThemeResource ContentAcrylicBrush}">                
             </Frame>
         </SplitView>
         <Button Name="MenuButton" 

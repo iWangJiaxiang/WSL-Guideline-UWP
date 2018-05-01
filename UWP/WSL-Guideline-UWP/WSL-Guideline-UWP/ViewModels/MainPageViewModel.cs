@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using WSL_Guideline_UWP.Models;
 namespace WSL_Guideline_UWP.ViewModels
 {
-    public class MenuItemViewModel
+    public class MainPageViewModel
     {
         private ObservableCollection<MenuItem> menuItems;
 
@@ -16,7 +16,7 @@ namespace WSL_Guideline_UWP.ViewModels
             get { return menuItems; }
         }
 
-        public MenuItemViewModel()
+        public MainPageViewModel()
         {
             menuItems = new ObservableCollection<MenuItem>();
             var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();

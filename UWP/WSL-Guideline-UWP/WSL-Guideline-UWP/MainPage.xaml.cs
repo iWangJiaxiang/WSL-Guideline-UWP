@@ -27,11 +27,11 @@ namespace WSL_Guideline_UWP
 {
     public sealed partial class MainPage : Page
     {
-        private MenuItemViewModel ViewModel;
+        private MainPageViewModel ViewModel;
         public MainPage()
         {
             this.InitializeComponent();
-            ViewModel = new MenuItemViewModel();
+            ViewModel = new MainPageViewModel();
             //初始化TitleBar
             InitializeTitleBar();
             UpdateAppTitleVisibility();

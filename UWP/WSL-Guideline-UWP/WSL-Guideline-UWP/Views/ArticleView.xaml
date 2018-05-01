@@ -10,12 +10,12 @@
     xmlns:control="using:WJX.UWP.Controls"
     mc:Ignorable="d" 
     Tag="ArticleView"
-    NavigationCacheMode="Enabled">
-    <Page.Transitions>
+    NavigationCacheMode="Required">
+    <!--<Page.Transitions>
         <TransitionCollection>
             <ContentThemeTransition/>
         </TransitionCollection>
-    </Page.Transitions>
+    </Page.Transitions>-->
     <Grid  Name="RootGrid">
         <toolkit:MasterDetailsView x:Name="MainMDView" 
                                     ItemsSource="{x:Bind ViewModel.Articles}" 

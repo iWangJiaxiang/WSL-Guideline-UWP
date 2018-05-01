@@ -19,16 +19,16 @@ namespace WSL_Guideline_UWP.Views
 {
     public sealed partial class HomeView : Page
     {
-        private string HomeArticle = @"\ArticleData\WSL-Guideline\README.md";
+        private string _homeArticlePath = @"\ArticleData\WSL-Guideline\README.md";
 
-        private ArticleViewModel ViewModel;
+        private HomeViewModel ViewModel { get; set; }
 
         public HomeView()
         {
             this.InitializeComponent();
 
-            ViewModel = new ArticleViewModel();
-            ViewModel.LoadModelAsync(HomeArticle);
+            ViewModel = new HomeViewModel();
+            ViewModel.LoadModelAsync(_homeArticlePath);
 
             Models.CurrentMarginTop.OnCurrentMarginTopChanged += CurrentMarginTop_OnCurrentMarginTopChanged;
             CurrentMarginTop_OnCurrentMarginTopChanged();

@@ -25,20 +25,24 @@ namespace WSL_Guideline_UWP.Views
 {
     public sealed partial class ArticleView : Page
     {
-        private string ArticleFolder = @"\ArticleData\WSL-Guideline\中文";
+        private string _articleName = "";
 
-        private ArticlesViewModel ViewModel;
+        private string _articleFolderPath = @"\ArticleData\WSL-Guideline\中文";
+
+        private ArticleViewModel ViewModel { get; set; }
+
         public ArticleView()
         {
             this.InitializeComponent();
 
-            ViewModel = new ArticlesViewModel();
+            ViewModel = new ArticleViewModel();
 
-            ViewModel.LoadModelsAsync(ArticleFolder);
+            ViewModel.LoadModelsAsync(_articleFolderPath);
 
             CurrentMarginTop.OnCurrentMarginTopChanged += CurrentMarginTop_OnCurrentMarginTopChanged;
             CurrentMarginTop_OnCurrentMarginTopChanged();
         }
+
         private void CurrentMarginTop_OnCurrentMarginTopChanged()
         {
             if (CurrentMarginTop.IsDisplayModeOverLay)
@@ -61,8 +65,6 @@ namespace WSL_Guideline_UWP.Views
             }
         }
 
-        string articleName = "";
-
         private void ScrollViewer_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
         {
             if (args.NewValue == null)
@@ -77,9 +79,9 @@ namespace WSL_Guideline_UWP.Views
              * 导致页面自动回到顶部
              */
             string newArticleName = ((Article)args.NewValue).Name;
-            if (articleName == newArticleName)
+            if (_articleName == newArticleName)
                 return;
-            articleName = newArticleName;
+            _articleName = newArticleName;
 
             ScrollViewer scrollViewer = (ScrollViewer)sender;
             //下面的已过时
